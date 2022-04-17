@@ -2,19 +2,17 @@ const serverUrl = "https://xxxxx/server";
 const appId = "YOUR_APP_ID";
 Moralis.start({ serverUrl, appId });
 
-const login = () => {
-    if (!Moralis.User.current()) {
-      user = await Moralis.authenticate({
-        type: "sol"
-      })
-        .then(function (user) {
-          console.log("logged in user:", user);
-          console.log(user.get("solAddress"));
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-  }
+/**
+ * @description Get Portfolio of an Address (SOL, SPL Token, SPL NFT address)
+ *
+ */
+const getSolanaPortfolio = async () => {
+  const options = {
+    network: "devnet",
+    address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
+  };
+  const portfolio = await Moralis.SolanaAPI.account.getPortfolio(options);
+  console.log(portfolio);
+};
 
-const solanaAPICall = async () => {};
+document.getElementById("get-portfolio").onclick = getSolanaPortfolio;
