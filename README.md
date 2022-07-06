@@ -2,6 +2,12 @@
 
 ### 1. Solana Vanilla
 
+Run the web dev server by running the following command.
+
+```sh
+python3 -m http.server
+```
+
 ### 2. Solana Curl
 
 ### 3. Solana React
