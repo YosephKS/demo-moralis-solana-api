@@ -1,5 +1,5 @@
-const serverUrl = "https://xxxxx/server";
-const appId = "YOUR_APP_ID";
+const serverUrl = "";
+const appId = "";
 Moralis.start({ serverUrl, appId });
 
 /**
@@ -8,8 +8,8 @@ Moralis.start({ serverUrl, appId });
  */
 const getSolanaPortfolio = async () => {
   const options = {
-    network: "devnet",
-    address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
+    network: document.getElementById("network").value,
+    address: document.getElementById("address").value,
   };
   const portfolio = await Moralis.SolanaAPI.account.getPortfolio(options);
   console.log(portfolio);
